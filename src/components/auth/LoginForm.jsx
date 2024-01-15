@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../../utils/validation";
@@ -7,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import PulseLoader from "react-spinners/PulseLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../features/userSlice";
-import axios from "axios";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -25,7 +23,6 @@ export default function LoginForm() {
 
   const onSubmit = async (values) => {
     let res = await dispatch(loginUser({ ...values }));
-    console.log(res);
     if (res?.payload?.user) {
       navigate("/");
     }
