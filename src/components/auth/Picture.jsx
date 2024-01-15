@@ -75,7 +75,7 @@ export default function Picture({
         onChange={handlePicture}
       />
       <div className="mt-2">
-        <p className="text-red-400 text-center">{error}</p>
+        <p className="text-red-400">{error}</p>
       </div>
     </div>
   );
