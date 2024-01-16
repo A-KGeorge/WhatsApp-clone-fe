@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 
 function App() {
   const user = useSelector((state) => state.user);
-  const { access_token } = user.user;
+  const { token } = user.user;
 
   return (
     <div className="dark">
@@ -16,17 +16,17 @@ function App() {
           <Route
             exact
             path="/"
-            element={access_token ? <Home /> : <Navigate to="/login" />}
+            element={token ? <Home /> : <Navigate to="/login" />}
           />
           <Route
             exact
             path="/login"
-            element={!access_token ? <Login /> : <Navigate to="/" />}
+            element={!token ? <Login /> : <Navigate to="/" />}
           />
           <Route
             exact
             path="/register"
-            element={!access_token ? <Register /> : <Navigate to="/" />}
+            element={!token ? <Register /> : <Navigate to="/" />}
           />
         </Routes>
       </Router>
