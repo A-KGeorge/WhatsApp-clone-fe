@@ -27,7 +27,7 @@ export default function Search({ searchLength }) {
               placeholder="Search or start a new chat"
               className="input"
               onFocus={() => setShow(true)}
-              onBlur={() => searchLength == 0 && setShow(false)}
+              onBlur={() => searchLength === 0 && setShow(false)}
               onKeyDown={(e) => handleSearch(e)}
             />
           </div>
