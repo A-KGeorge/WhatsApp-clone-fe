@@ -1,6 +1,4 @@
-import NotificationIcon from "./../../../svg/Notification";
-import ArrowIcon from "./../../../svg/Arrow";
-import CloseIcon from "./../../../svg/Close";
+import { NotificationIcon, ArrowIcon, CloseIcon } from "./../../../svg";
 
 export default function Notifications() {
   return (

@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux";
-import CommunityIcon from "./../../../svg/Community";
-import StoryIcon from "./../../../svg/Story";
-import ChatIcon from "./../../../svg/Chat";
-import DotsIcon from "./../../../svg/Dots";
+import { CommunityIcon, StoryIcon, ChatIcon, DotsIcon } from "./../../../svg";
 
 export default function SidebarHeader() {
-  const user = useSelector((state) => state.user.user);
+  const { user } = useSelector((state) => state.user);
 
   return (
     <div className="h-[50px] dark:bg-dark_bg_2 flex items-center p16">

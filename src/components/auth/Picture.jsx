@@ -46,7 +46,7 @@ export default function Picture({
         <div>
           <img
             src={readablePicture}
-            alt="profile picture"
+            alt="profile pic"
             className="w-20 h-20 object-cover rounded-full"
           />
           {/* change pic */}
