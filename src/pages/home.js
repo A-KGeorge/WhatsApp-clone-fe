@@ -8,6 +8,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
+  console.log("activeConversation: ", activeConversation);
   //get conversations
   useEffect(() => {
     if (user?.token) {
@@ -21,7 +22,7 @@ export default function Home() {
       <div className="container h-screen flex">
         {/* Sidebar */}
         <Sidebar />
-        {activeConversation ? "Home" : <WhatsappHome />}
+        {Object.keys(activeConversation).length > 0 ? "Home" : <WhatsappHome />}
       </div>
     </div>
   );
