@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
 import { DotsIcon, SearchLargeIcon } from "../../../svg";
 import { capitalize } from "../../../utils/string";
-export default function ChatHeader() {
-  const { activeConversation } = useSelector((state) => state.chat);
+export default function ChatHeader({ activeConversation }) {
   const { name, picture } = activeConversation;
   return (
     <div className="h-[59px] dark:bg-dark_bg_2 flex items-center p16 select-none">

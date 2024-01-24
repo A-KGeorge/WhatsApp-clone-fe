@@ -36,7 +36,7 @@ export default function Conversation({ convo }) {
           {/* Conversation name and message */}
           <div className="w-full flex flex-col">
             {/* Conversation name */}
-            <h1 className="font-bold flex items-center gap-x-2">
+            <h1 className="font-semibold flex items-center gap-x-2">
               {capitalize(convo.name)}
             </h1>
             {/* Conversation message */}
