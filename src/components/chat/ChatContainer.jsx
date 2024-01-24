@@ -17,7 +17,7 @@ export default function ChatContainer() {
   useEffect(() => {
     dispatch(getConversationMessages(values));
   }, [activeConversation]);
-  console.log("messages: ", messages);
+
   return (
     <div className="relative h-full w-full  border-l dark:border-l-dark_border_2 select-none overflow-hidden">
       {/* Container */}
