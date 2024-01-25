@@ -56,7 +56,12 @@ function ChatActions({ socket }) {
           />
         </ul>
         {/* Input */}
-        <Input message={message} setMessage={setMessage} textRef={textRef} />
+        <Input
+          message={message}
+          setMessage={setMessage}
+          textRef={textRef}
+          socket={socket}
+        />
         {/* Send Button */}
         <button className="btn" type="submit">
           {status === "loading" && loading ? (

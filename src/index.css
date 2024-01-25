@@ -41,7 +41,7 @@
     overflow-x: hidden;
   }
   .online {
-    border: 2px solid #00a884;
+    border: solid #00a884;
     transition: border-color 0.3s ease-in;
   }
 
@@ -168,7 +168,7 @@
 }
 
 .animate-slide-up {
-  animation: slideUp 1s ease-in forwards;
+  animation: slideUp 0.3s ease-in forwards;
 }
 
 @keyframes slideDown {
@@ -183,5 +183,5 @@
 }
 
 .animate-slide-down {
-  animation: slideDown 1s ease-out forwards;
+  animation: slideDown 0.3s ease-out forwards;
 }
