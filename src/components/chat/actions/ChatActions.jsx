@@ -12,6 +12,7 @@ export default function ChatActions() {
   const [message, setMessage] = useState("");
   const [showAttachments, setShowAttachments] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { activeConversation, status } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
   const { token } = user;
@@ -24,8 +25,10 @@ export default function ChatActions() {
   };
   const sendMessageHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await dispatch(sendMessage(values));
     setMessage("");
+    setLoading(false);
   };
   return (
     <form
@@ -54,7 +57,7 @@ export default function ChatActions() {
         <Input message={message} setMessage={setMessage} textRef={textRef} />
         {/* Send Button */}
         <button className="btn" type="submit">
-          {status === "loading" ? (
+          {status === "loading" && loading ? (
             <ClipLoader color="#E9EDEF" size={25} />
           ) : (
             <SendIcon className="dark:fill-dark_svg_1" />
