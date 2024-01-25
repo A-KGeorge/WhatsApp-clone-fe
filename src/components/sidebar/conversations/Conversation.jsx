@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { capitalize } from "./../../../utils/string";
 import SocketContext from "../../../context/SocketContext";
 
-function Conversation({ convo, socket }) {
+function Conversation({ convo, socket, online }) {
   const dispatch = useDispatch();
   const { activeConversation } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
@@ -37,7 +37,14 @@ function Conversation({ convo, socket }) {
         {/* left */}
         <div className="flex items-center gap-x-3">
           {/* Conversation user picture */}
-          <div className="relative min-w-[50px] max-w-[50px] h-[50px] rounded-full overflow-hidden">
+          <div
+            className={`relative min-w-[50px] max-w-[50px] h-[50px] rounded-full overflow-hidden`}
+          >
+            <div
+              className={`absolute top-0 left-0 w-full h-full border-2 rounded-full overflow-hidden ${
+                online ? "online" : "offline"
+              }`}
+            ></div>
             <img
               src={getConversationPicture(user, convo.users)}
               alt={getConversationName(user, convo.users)}

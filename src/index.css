@@ -40,6 +40,15 @@
     overflow-y: auto;
     overflow-x: hidden;
   }
+  .online {
+    border: 2px solid #00a884;
+    transition: border-color 0.3s ease-in;
+  }
+
+  .offline {
+    border-color: transparent;
+    transition: border-color 0.3s ease-out;
+  }
 }
 
 /* Animations */
@@ -144,4 +153,35 @@
   0% {
     transform: translateY(100%);
   }
+}
+
+/* Online animation */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-in forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 1s ease-out forwards;
 }
