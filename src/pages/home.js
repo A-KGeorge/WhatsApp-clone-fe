@@ -10,6 +10,10 @@ function Home({ socket }) {
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
 
+  //join user into socket io
+  useEffect(() => {
+    socket.emit("join", user._id);
+  }, [user]);
   //get conversations
   useEffect(() => {
     if (user?.token) {
