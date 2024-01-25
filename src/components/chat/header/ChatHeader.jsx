@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { DotsIcon, SearchLargeIcon } from "../../../svg";
 import {
   getConversationName,
@@ -10,11 +9,6 @@ import { useSelector } from "react-redux";
 export default function ChatHeader({ activeConversation, online }) {
   const { user } = useSelector((state) => state.user);
   const { users } = activeConversation;
-  const [shouldAnimate, setShouldAnimate] = useState(false);
-
-  useEffect(() => {
-    setShouldAnimate(true);
-  }, [online]);
 
   return (
     <div className="h-[59px] dark:bg-dark_bg_2 flex items-center p16 select-none">
@@ -37,11 +31,7 @@ export default function ChatHeader({ activeConversation, online }) {
             </h1>
             <span
               className={`text-xs dark:text-dark_svg_2 ${
-                shouldAnimate
-                  ? online
-                    ? "animate-slide-up"
-                    : "animate-slide-down"
-                  : ""
+                online ? "animate-slide-up" : "animate-slide-down"
               }`}
             >
               online
