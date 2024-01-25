@@ -29,7 +29,7 @@ export default function Search({ searchLength, setSearchResults }) {
     }
   };
   return (
-    <div className="h-[40px] py-1.5 ">
+    <div className="h-[49px] py-1.5 ">
       {/* Container */}
       <div className="px-[10px]">
         {/* search input container */}
