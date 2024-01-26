@@ -57,6 +57,6 @@ export const formatDate = (dateString) => {
   } else if (date.isAfter(lastWeek) && date.isSameOrBefore(today)) {
     return date.format("dddd").toUpperCase(); // Returns the name of the day of the week
   } else {
-    return date.format("MMMM DD, YYYY"); // Returns the date in the format "Month name DD, YYYY"
+    return date.format("DD/MM/YYYY"); // Returns the date in the format "Month name DD, YYYY"
   }
 };
