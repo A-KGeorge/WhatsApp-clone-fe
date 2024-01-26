@@ -3,7 +3,6 @@ import Message from "./Message";
 import { useEffect, useRef } from "react";
 import Typing from "./Typing";
 import Date from "./Date";
-import { formatDate } from "../../../utils/date";
 
 export default function ChatMessages({ typing }) {
   const { messages, activeConversation } = useSelector((state) => state.chat);
