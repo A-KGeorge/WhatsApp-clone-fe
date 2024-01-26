@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const dateHandler = (date) => {
+export const timeHandler = (date) => {
   let now = moment();
   let momentDate = moment(date);
   let time = momentDate.fromNow(true);
@@ -41,4 +41,22 @@ export const dateHandler = (date) => {
   }
 
   return time;
+};
+
+export const formatDate = (dateString) => {
+  const date = moment.utc(dateString).local().startOf("day");
+  const today = moment().local().startOf("day");
+  const lastWeek = moment().subtract(7, "days").local().startOf("day");
+
+  if (date.isSame(today, "day")) {
+    return "TODAY";
+  } else if (
+    date.isSame(moment().subtract(1, "days").local().startOf("day"), "day")
+  ) {
+    return "YESTERDAY";
+  } else if (date.isAfter(lastWeek) && date.isSameOrBefore(today)) {
+    return date.format("dddd").toUpperCase(); // Returns the name of the day of the week
+  } else {
+    return date.format("MMMM DD, YYYY"); // Returns the date in the format "Month name DD, YYYY"
+  }
 };

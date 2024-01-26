@@ -4,7 +4,7 @@ import {
   getConversationName,
   getConversationPicture,
 } from "../../../utils/chat";
-import { dateHandler } from "../../../utils/date";
+import { timeHandler } from "../../../utils/date";
 import { useDispatch, useSelector } from "react-redux";
 import { capitalize } from "./../../../utils/string";
 import SocketContext from "../../../context/SocketContext";
@@ -78,7 +78,7 @@ function Conversation({ convo, socket, online, typing }) {
         {/* right */}
         <div className="flex flex-col gap-y-4 items-end text-xs">
           <span className="dark:text-dark_text_2">
-            {dateHandler(convo.latestMessage?.createdAt)}
+            {timeHandler(convo.latestMessage?.createdAt)}
           </span>
         </div>
       </div>
