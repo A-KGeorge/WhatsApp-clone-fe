@@ -49,6 +49,10 @@
     border-color: transparent;
     transition: border-color 0.3s ease-out;
   }
+
+  .hview {
+    height: calc(100vh - 280px);
+  }
 }
 
 /* Animations */
