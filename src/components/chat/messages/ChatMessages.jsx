@@ -3,6 +3,8 @@ import Message from "./Message";
 import { useEffect, useRef } from "react";
 import Typing from "./Typing";
 import Date from "./Date";
+import FileMessage from "./files/FileMessage";
+import moment from "moment";
 
 export default function ChatMessages({ typing }) {
   const { messages, activeConversation } = useSelector((state) => state.chat);
@@ -27,22 +29,38 @@ export default function ChatMessages({ typing }) {
           messages.map((message, index) => {
             const prevMessage = messages[index - 1];
 
-            const showDate =
-              !prevMessage ||
-              message.createdAt.substring(0, 10) !==
-                prevMessage.createdAt.substring(0, 10);
+            const showDate = prevMessage
+              ? !moment(message.createdAt).isSame(
+                  moment(prevMessage.createdAt),
+                  "day"
+                )
+              : true;
 
             return (
               <div key={message._id}>
+                {/* Date */}
                 {showDate && (
                   <div className="text-center">
-                    <Date date={message.createdAt.substring(0, 10)} />
+                    <Date date={message.createdAt} />
                   </div>
                 )}
-                <Message
-                  message={message}
-                  me={user._id === message.sender._id}
-                />
+                {/* Message files */}
+                {message.files.length > 0
+                  ? message.files.map((file) => (
+                      <FileMessage
+                        fileMessage={file}
+                        message={message}
+                        me={user._id === message.sender._id}
+                      />
+                    ))
+                  : null}
+                {/* Message text */}
+                {message.message.length > 0 ? (
+                  <Message
+                    message={message}
+                    me={user._id === message.sender._id}
+                  />
+                ) : null}
               </div>
             );
           })}
