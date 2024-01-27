@@ -1,5 +1,4 @@
 export default function Input({ message, setMessage }) {
-  console.log("message: ", message);
   return (
     <div className="w-full max-w-[60%] dark:bg-dark_hover_1 rounded-lg">
       {/* Message input */}

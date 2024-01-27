@@ -23,7 +23,14 @@ export default function DocumentAttachment() {
         file.type !== "application/zip" &&
         file.type !== "application/x-7z-compressed" &&
         file.type !== "audio/mpeg" &&
-        file.type !== "audio/wav"
+        file.type !== "audio/wav" &&
+        file.type !== "image/png" &&
+        file.type !== "image/jpeg" &&
+        file.type !== "image/gif" &&
+        file.type !== "image/webp" &&
+        file.type !== "video/mp4" &&
+        file.type !== "video/mpeg" &&
+        file.type !== "video/webm"
       ) {
         files = files.filter((item) => item.name !== file.name);
         return;

@@ -11,6 +11,19 @@ export default function PhotoAttachment() {
     let files = Array.from(e.target.files);
     files.forEach((file) => {
       if (
+        file.type !== "application/pdf" &&
+        file.type !== "text/plain" &&
+        file.type !== "application/msword" &&
+        file.type !==
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document" &&
+        file.type !== "application/vnd.ms-powerpoint" &&
+        file.type !==
+          "application/vnd.openxmlformats-officedocument.presentationml.presentation" &&
+        file.type !== "application/vnd.rar" &&
+        file.type !== "application/zip" &&
+        file.type !== "application/x-7z-compressed" &&
+        file.type !== "audio/mpeg" &&
+        file.type !== "audio/wav" &&
         file.type !== "image/png" &&
         file.type !== "image/jpeg" &&
         file.type !== "image/gif" &&
