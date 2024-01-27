@@ -19,6 +19,8 @@ export default function DocumentAttachment() {
         file.type !== "application/vnd.ms-powerpoint" &&
         file.type !==
           "application/vnd.openxmlformats-officedocument.presentationml.presentation" &&
+        file.type !==
+          "application/vnd.ms-powerpoint.presentation.macroEnabled.12" &&
         file.type !== "application/vnd.rar" &&
         file.type !== "application/zip" &&
         file.type !== "application/x-7z-compressed" &&
@@ -66,7 +68,7 @@ export default function DocumentAttachment() {
         multiple
         ref={inputRef}
         accept="application/pdf, text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, 
-        application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.rar, application/zip, 
+        application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.ms-powerpoint.presentation.macroEnabled.12, application/vnd.rar, application/zip, 
         application/x-7z-compressed, audio/mpeg, audio/wav"
         onChange={documentHandler}
       />

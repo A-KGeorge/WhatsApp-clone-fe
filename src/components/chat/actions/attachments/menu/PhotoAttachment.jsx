@@ -19,6 +19,8 @@ export default function PhotoAttachment() {
         file.type !== "application/vnd.ms-powerpoint" &&
         file.type !==
           "application/vnd.openxmlformats-officedocument.presentationml.presentation" &&
+        file.type !==
+          "application/vnd.ms-powerpoint.presentation.macroEnabled.12" &&
         file.type !== "application/vnd.rar" &&
         file.type !== "application/zip" &&
         file.type !== "application/x-7z-compressed" &&

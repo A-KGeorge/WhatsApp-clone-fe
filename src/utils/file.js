@@ -9,6 +9,7 @@ export const getFileType = (memType) => {
       return "DOCX";
     case "application/vnd.ms-powerpoint":
     case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+    case "application/vnd.ms-powerpoint.presentation.macroEnabled.12":
       return "PPTX";
     case "application/vnd.ms-excel":
     case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":

@@ -4,6 +4,7 @@ import { CloseIcon, SendIcon } from "../../../../svg";
 import { uploadFiles } from "../../../../utils/upload";
 import { useState } from "react";
 import {
+  clearFiles,
   removeFileFromFiles,
   sendMessage,
 } from "../../../../features/chatSlice";
@@ -33,6 +34,7 @@ function HandleAndSend({ activeIndex, setActiveIndex, message, socket }) {
     let newMsg = await dispatch(sendMessage(values));
     socket.emit("send message", newMsg.payload);
     setLoading(false);
+    dispatch(clearFiles());
   };
   //Handle remove files
   const handleRemoveFile = async (index) => {
