@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { DocumentIcon } from "../../../../../svg";
 import { useDispatch } from "react-redux";
 import { addFiles } from "../../../../../features/chatSlice";
+import { getFileType } from "../../../../../utils/file";
 
 export default function DocumentAttachment() {
   const inputRef = useRef(null);
@@ -36,7 +37,7 @@ export default function DocumentAttachment() {
           dispatch(
             addFiles({
               file: file,
-              type: file.type.split("/")[0],
+              type: getFileType(file.type),
             })
           );
         };
@@ -55,6 +56,7 @@ export default function DocumentAttachment() {
       <input
         type="file"
         hidden
+        multiple
         ref={inputRef}
         accept="application/pdf, text/plain, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, 
         application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.rar, application/zip, 
