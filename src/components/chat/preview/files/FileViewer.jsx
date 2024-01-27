@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 export default function FileViewer({ activeIndex }) {
   const { files } = useSelector((state) => state.chat);
+  console.log(files[activeIndex].fileData);
   return (
     <div className="w-full max-w-[60%]">
       {/*Container */}
@@ -10,6 +11,12 @@ export default function FileViewer({ activeIndex }) {
           <img
             src={files[activeIndex].fileData}
             alt=""
+            className="max-w-[80%] object-contain hview"
+          />
+        ) : files[activeIndex].type === "VIDEO" ? (
+          <video
+            src={files[activeIndex].fileData}
+            controls
             className="max-w-[80%] object-contain hview"
           />
         ) : (
@@ -27,7 +34,8 @@ export default function FileViewer({ activeIndex }) {
             <span className="dark:text-dark_text_2">
               {files[activeIndex]?.file?.size < 1000
                 ? "1"
-                : Math.round(files[activeIndex]?.file?.size)}{" "}
+                : Math.round((files[activeIndex]?.file?.size / 1024) * 10) /
+                  10}{" "}
               kB - {files[activeIndex]?.type}
             </span>
           </div>
