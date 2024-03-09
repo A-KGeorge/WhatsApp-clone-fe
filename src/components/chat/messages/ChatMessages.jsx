@@ -46,8 +46,9 @@ export default function ChatMessages({ typing }) {
                 )}
                 {/* Message files */}
                 {message.files.length > 0
-                  ? message.files.map((file) => (
+                  ? message.files.map((file, index) => (
                       <FileMessage
+                        key={index}
                         fileMessage={file}
                         message={message}
                         me={user._id === message.sender._id}
